@@ -117,18 +117,20 @@ function alteraModoRobô(jogador, flag){
     switch(jogador){
         case 'p1':
             modoRobô1 = flag
-            exibeModoRobô(humano1, robô1)
+            exibeModoRobô(humano1, robô1, modoRobô1)
             break
         case 'p2':
             modoRobô2 = flag
-            exibeModoRobô(humano2, robô2)
+            exibeModoRobô(humano2, robô2, modoRobô2)
             break
     }
 }
 
-function exibeModoRobô(humano, robô){
-    humano.src = modoRobô1 ? 'garoto-mono.png' : 'garoto.png'
-    robô.src = modoRobô1 ? 'robo.png' : 'robo-mono.png'
+function exibeModoRobô(humano, robô, modo){
+    humano.src = modo ? 'garoto-mono.png' : 'garoto.png'
+    humano.title = modo ? 'Humano (desativado)' : 'Humano'
+    robô.src = modo ? 'robo.png' : 'robo-mono.png'
+    robô.title = modo ? 'Robô' : 'Robô (desativado)'
 }
 
 function adicionaBotão(div, jogador, s){
